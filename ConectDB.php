@@ -5,13 +5,13 @@
    $pass  = "";
    $db    = "lab2-c2";
 
-   try{
+
     $conn = new mysqli($host,$user,$pass,$db);
 
-  }
-  catch(Error $e){
-     die("Conexion fallida: ".$conn->connect_error);
-  }
+  
+ if ($conn->connect_error) {
+    die("Error de conexión: " . $conn->connect_error);
+}
 
 
 ?>

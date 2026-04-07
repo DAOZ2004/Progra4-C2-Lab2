@@ -1,16 +1,16 @@
 <?php
 session_start();
-include 'db.php';
+include 'ConectDB.php';
 
-$username = $_POST['Username'];
-$password = md5($_POST['Password']);
+$Username = $_POST['Username'];
+$Password = md5($_POST['Password']);
 
-$sql = "SELECT * FROM usuarios WHERE username='$username' AND password='$password'";
+$sql = "SELECT * FROM usuarios WHERE Username='$Username' AND Password='$Password'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    $_SESSION['user'] = $username;
-    header("Location: dashboard.php");
+    $_SESSION['user'] = $Username;
+    header("Location: Dashboard.php");
 } else {
     echo "Credenciales incorrectas";
 }
