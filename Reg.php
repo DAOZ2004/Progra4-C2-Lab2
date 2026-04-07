@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'db.php';
+include 'ConectDB.php';
 
 $username = $_POST['Username'];
 $password = md5($_POST['Password']);
