@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'db.php';
+include 'ConectDB.php';
 
 if (!isset($_SESSION['user'])) {
     header("Location: index.php");
@@ -21,9 +21,9 @@ if (!isset($_SESSION['user'])) {
 <h3>Ingresar datos</h3>
 
 <form action="insert.php" method="POST">
-    <input type="text" name="nombre" placeholder="Nombre" required>
-    <input type="number" name="edad" placeholder="Edad" required>
-    <input type="email" name="correo" placeholder="Correo" required>
+    <input type="text" name="Nombre" placeholder="Nombre" required>
+    <input type="number" name="Edad" placeholder="Edad" required>
+    <input type="email" name="Correo" placeholder="Correo" required>
     <button type="submit">Guardar</button>
 </form>
 
@@ -42,9 +42,9 @@ if (!isset($_SESSION['user'])) {
 
     while ($row = $result->fetch_assoc()) {
         echo "<tr>
-                <td>{$row['nombre']}</td>
-                <td>{$row['edad']}</td>
-                <td>{$row['correo']}</td>
+                <td>{$row['Nombre']}</td>
+                <td>{$row['Edad']}</td>
+                <td>{$row['Correo']}</td>
               </tr>";
     }
     ?>

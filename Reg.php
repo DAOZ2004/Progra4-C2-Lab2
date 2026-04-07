@@ -3,7 +3,7 @@ session_start();
 include 'ConectDB.php';
 
 $Username = $_POST['Username'];
-$Password = md5($_POST['Password']);
+$Password = $_POST['Password'];
 
 $sql = "SELECT * FROM usuarios WHERE Username='$Username' AND Password='$Password'";
 $result = $conn->query($sql);

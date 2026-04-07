@@ -1,25 +1,25 @@
 <?php
 include 'ConectDB.php';
 
-$nombre = $_POST['Nombre'];
-$edad = $_POST['Edad'];
-$correo = $_POST['Correo'];
+$Nombre = $_POST['Nombre'];
+$Edad = $_POST['Edad'];
+$Correo = $_POST['Correo'];
 
 // VALIDACIONES
-if (empty($nombre) || empty($edad) || empty($correo)) {
+if (empty($Nombre) || empty($Edad) || empty($Correo)) {
     die("Todos los campos son obligatorios");
 }
 
-if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+if (!filter_var($Correo, FILTER_VALIDATE_EMAIL)) {
     die("Correo inválido");
 }
 
-if (!is_numeric($edad) || $edad <= 0) {
+if (!is_numeric($Edad) || $Edad <= 0) {
     die("Edad inválida");
 }
 
 $sql = "INSERT INTO datos (Nombre, Edad, Correo)
-        VALUES ('$nombre', '$edad', '$correo')";
+        VALUES ('$Nombre', '$Edad', '$Correo')";
 
 if ($conn->query($sql)) {
     header("Location: Dashboard.php");
