@@ -1,9 +1,9 @@
 <?php
-include 'db.php';
+include 'ConectDB.php';
 
-$nombre = $_POST['nombre'];
-$edad = $_POST['edad'];
-$correo = $_POST['correo'];
+$nombre = $_POST['Nombre'];
+$edad = $_POST['Edad'];
+$correo = $_POST['Correo'];
 
 // VALIDACIONES
 if (empty($nombre) || empty($edad) || empty($correo)) {
@@ -18,11 +18,11 @@ if (!is_numeric($edad) || $edad <= 0) {
     die("Edad inválida");
 }
 
-$sql = "INSERT INTO datos (nombre, edad, correo)
+$sql = "INSERT INTO datos (Nombre, Edad, Correo)
         VALUES ('$nombre', '$edad', '$correo')";
 
 if ($conn->query($sql)) {
-    header("Location: dashboard.php");
+    header("Location: Dashboard.php");
 } else {
     echo "Error: " . $conn->error;
 }
